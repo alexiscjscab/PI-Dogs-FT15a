@@ -28,6 +28,10 @@ module.exports = (sequelize) => {
     //esperanza de vida
     life_span:{
       type: DataTypes.STRING
+    },
+    // imagen
+    image :{
+      type: DataTypes.STRING(100000)
     }
   });
 };
