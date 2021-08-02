@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
 
             // console.log(totalDogs.length) hay 172
             console.log(totalDogs)
-            return res.json(totalDogs)
+            return res.status(200).json(totalDogs)
 
         }
         catch(error){
