@@ -57,6 +57,16 @@ router.get('/', async (req, res) => {
 
             let dogApiFilter = resultsApi.data.filter( dog => dog.name.toLowerCase().includes(`${name.toLowerCase()}`));
 
+            dogApiFilter = dogApiFilter && dogApiFilter.map(data => ({
+                name: data.name,
+                id: data.id,
+                life_span: data.life_span,
+                weight: data.weight.metric,
+                height: data.height.metric,
+                temperament: data.temperament,
+                image: data.image.url
+            }))
+
             let resultsDb = await Dog.findAll({
                 where:{name:{
                     [Op.iLike] : `%${name}%`
