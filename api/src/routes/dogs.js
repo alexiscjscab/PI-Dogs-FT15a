@@ -75,7 +75,8 @@ router.get('/', async (req, res) => {
 
             let dogsName = [...dogApiFilter, ... resultsDb];
 
-            return res.json(dogsName)
+            dogsName.length === 0 ? res.json({error: 'no se encontro el name'}) : res.json(dogsName)
+            
         }catch(error){
             res.send(error);
         }

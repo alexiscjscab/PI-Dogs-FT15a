@@ -1,5 +1,5 @@
 const Router = require('express');
-const {Dog, Temperament} = require('../db');
+const {Dog} = require('../db');
 const router = Router();
 const { v4: uuidv4 } = require('uuid');
 
