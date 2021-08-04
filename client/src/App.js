@@ -1,10 +1,14 @@
-import './App.css';
+import {Route} from 'react-router-dom';
+import {Fragment} from 'react';
+import LandingPage from './components/LandingPage/LandingPage';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Dogs</h1>
-    </div>
+    <Fragment>
+      <Route exact path= '/' component = {LandingPage}/>
+    </Fragment>
   );
 }
 
