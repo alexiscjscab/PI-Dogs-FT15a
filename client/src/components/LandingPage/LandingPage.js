@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import styled from 'styled-components'
-import {GoHome} from 'react-icons/go'
-import fondo from '../../img/fondo.jpg'
-
+import styled from 'styled-components';
+import {GoHome} from 'react-icons/go';
+// import fondo from '../../img/fondo.jpg';
+import gif from '../../img/dog2Gif.gif';
 const LandingPage = () => {
     return (
         <Container>
@@ -13,7 +13,7 @@ const LandingPage = () => {
             <div className='botton'>
                 <Link to = '/home'>
                     <GoHome className='btn'/>
-                </Link>
+                </Link> 
             </div>
 
         </Container>
@@ -24,7 +24,7 @@ const LandingPage = () => {
 
 const Container = styled.div`
     display: grid;
-    background: url(${fondo});
+    background: url(${gif});
     background-size: 100% 100%;
     position: fixed;
     background-attachment: fixed;
