@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
                 name: data.name,
                 id: data.id,
                 life_span: data.life_span,
-                weight: data.weight.metric,
+                weight: data.weight.metric.split(' - ').map(x => Number(x)), // para poder hacer el sort
                 height: data.height.metric,
                 temperament: data.temperament,
                 image: data.image.url
@@ -61,7 +61,7 @@ router.get('/', async (req, res) => {
                 name: data.name,
                 id: data.id,
                 life_span: data.life_span,
-                weight: data.weight.metric,
+                weight: data.weight.metric.split(' - ').map(x => Number(x)), // para poder hacer el sort
                 height: data.height.metric,
                 temperament: data.temperament,
                 image: data.image.url
@@ -75,7 +75,7 @@ router.get('/', async (req, res) => {
 
             let dogsName = [...dogApiFilter, ... resultsDb];
 
-            dogsName.length === 0 ? res.json({error: 'no se encontro el name'}) : res.json(dogsName)
+            dogsName.length === 0 ? res.send([]) : res.json(dogsName)
             
         }catch(error){
             res.send(error);
