@@ -34,13 +34,13 @@ const Container = styled.div`
 
 
     .title{
-        font-size: 50px;
+        font-size: 70px;
         padding-top: 5rem;
         color: #000;
         cursor: alias;
+        font-family: 'Style Script', cursive;
         h1{
             display: inline;
-            border-bottom: 10px solid #000;
         }
 
     }
@@ -74,7 +74,7 @@ const Container = styled.div`
 
     @media (max-width: 600px){
         .title{
-            font-size: 35px;
+            font-size: 55px;
         }
         .btn{
             font-size: 50px;

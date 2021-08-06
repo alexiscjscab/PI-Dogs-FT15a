@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // traemos todos los dogs de la api
 export const getAllDogs = () => {
-    return async function(dispatch){
+    return async (dispatch) => {
         let res = await axios.get('http://localhost:3001/dogs');
         let result = res.data;
         dispatch(sendDogName(result));
@@ -11,7 +11,7 @@ export const getAllDogs = () => {
 
 // Buscamo por nombre en la api
 export function filterNameDog(nombre){
-    return async function(dispatch){
+    return async (dispatch) => {
         let res = await axios.get(`http://localhost:3001/dogs?name=${nombre}`);
         let result = res.data;
         dispatch(sendDogName(result));
@@ -29,7 +29,7 @@ export const sendDogName = (data) =>{
 
 // traemos todos los temperamentos de la api
 export const getTemperaments = () => {
-    return function async (dispatch){
+    return async (dispatch) => {
         axios.get('http://localhost:3001/temperament')
         .then(temperaments => temperaments.data)
         .then(temperaments => dispatch(sendTemperaments(temperaments)))
