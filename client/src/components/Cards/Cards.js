@@ -7,6 +7,7 @@ const Cards = () => {
 
     const filtered = useSelector(state => state.filtered)
     const created = useSelector(state => state.created)
+    
 
 
     const [limit, setLimit] = useState(0);
@@ -19,60 +20,74 @@ const Cards = () => {
         setLimit(limit + 8);
     }
 
+    console.log(created)
+
 
     return (
         <Fragment>
             <Container>
             <Ctn>
                 {
-                    filtered.length === [] ? null : filtered.slice(limit, limit+8).map(dog => {
+                
+                     filtered.length === 0 ? null : filtered.slice(limit, limit+8).map(dog => {
 
-                        if(!dog.temperament){
-                            for(let i = 0; i < created.length; i++){
-                                if(dog.name === created[i].name){
-                                    var temperaments = created[i].temperaments;
-                                    if(!dog.image){
-                                        dog.image = "https://cdn2.thedogapi.com/images/B1d5me547.jpg";
-                                    }
-                                    break;
-                                }
-                            }
-                            return (
-                                <span>
-                                    <Card 
-                                        key = {dog.id}
-                                        image = {dog.image}
-                                        name = {dog.name}
-                                        temperament = {temperaments}
-                                        id = {dog.id}
-                                    />
-                                </span>
-                            )
-
+                        if(!dog.image){
+                            dog.image = 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg'
                         }
+                        
+                        
                         return(
                             <span>
                                 <Card 
                                     key = {dog.id}
                                     image = {dog.image}
                                     name = {dog.name}
-                                    temperament = {dog.temperament}
+                                    temperament = {dog.temperament} 
                                     id = {dog.id}
                                 />
                             </span>
                         )
-                    })
+                    }) 
                 }
+            
+            
+            {
+            created.length === 0 ? null : created.slice(limit, limit+8).map(dog => {
+
+                if(!dog.image){
+                    dog.image = 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg'
+                }
+
+                
+                
+                
+                
+                return(
+                    <span>
+                        <Card 
+                            key = {dog.id}
+                            image = {dog.image}
+                            name = {dog.name}
+                            temperament = {dog.temperaments}
+                            id = {dog.id}
+                        />
+                    </span>
+                )
+            }) 
+        }
             </Ctn>
             </Container>
+
             <Paginado>
             {
-                filtered && filtered.length !== 0 && limit !== 0 ? <button onClick={decr} className="btn">Prev</button>:null
+                filtered.length !== 0 && limit !== 0 ? <button onClick={decr} className="btn">Prev</button> : null
             }
             {
                 filtered.length !== 0 && limit !== filtered.length - (filtered.length % 8) && filtered.length > 8 ? <button onClick={inc} className="btn">Next</button>:null
             }
             </Paginado>
+
+
         </Fragment>
     )
 }

@@ -10,7 +10,7 @@ export const getAllDogs = () => {
 }
 
 // Buscamo por nombre en la api
-export function filterNameDog(nombre){
+export const filterNameDog = (nombre) => {
     return async (dispatch) => {
         let res = await axios.get(`http://localhost:3001/dogs?name=${nombre}`);
         let result = res.data;
@@ -57,7 +57,7 @@ export function saveCreated(created){
     };
 
     return {
-        type: "SAVE_CREATED",
+        type: "SAVED_CREATED",
         payload: obj
     }
 }
@@ -140,6 +140,25 @@ export const SortDESC = () => {
 export const Sort_DESC = (data) => {
     return{
         type: 'SORT_DESC',
+        payload: data
+    }
+}
+
+
+// Filtrado por temperament
+
+export const ByTemperament = (data) => {
+    
+    return async(dispatch) => {
+        let res = await axios.get(`http://localhost:3001/temp/${data}`);
+        let result = res.data;
+        dispatch(By_Temperament(result));
+    }
+}
+
+export const By_Temperament = (data) => {
+    return {
+        type: 'BY_TEMPERAMENT',
         payload: data
     }
 }

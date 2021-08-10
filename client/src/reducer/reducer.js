@@ -33,7 +33,9 @@ const rootReducer = (state = initialState, {type, payload}) => {
         case 'SEARCH_CREATED':
             return{
                 ...state,
-                filtered : payload
+                created : state.created,
+                filtered:[]
+
             }
 
         case 'SORT_AZ': 
@@ -84,6 +86,12 @@ const rootReducer = (state = initialState, {type, payload}) => {
             return {
                 ...state,
                 filtered : resultD
+            }
+
+        case 'BY_TEMPERAMENT':
+            return{
+                ...state,
+                filtered: payload
             }
 
         default:

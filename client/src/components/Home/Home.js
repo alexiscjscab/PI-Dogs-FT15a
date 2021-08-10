@@ -1,21 +1,29 @@
 import React, { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux'
-import {getAllDogs, getTemperaments, SortAZ, SortZA, SortASC, SortDESC} from '../../actions/actions'
+import {getAllDogs, getTemperaments, SortAZ, SortZA, SortASC, SortDESC,searchCreated, ByTemperament} from '../../actions/actions'
 import Cards from '../Cards/Cards';
 import styled from 'styled-components';
 
 function Home() {
     const dispatch = useDispatch()
     const temperamentsElem = useSelector(state => state.temperamentsElem)
+    
 
     useEffect(() => {
         dispatch(getTemperaments())
     },[dispatch])
 
 
+
+    const selectTemperament = (e) => {
+        const value = e.target.value;
+        dispatch(ByTemperament(value));
+    }
+
+
     const selectCreated = (e) => {
         const value = e.target.value;
-        return value === "All" ?  dispatch(getAllDogs()) : null
+        return value === "All" ?  dispatch(getAllDogs()) : value === 'Created' ? dispatch(searchCreated()) : null
         // falta los creados por nosotros
     }
 
@@ -30,16 +38,17 @@ function Home() {
         )
     }
 
+
     return (
         <div>
             <CtnHome>
                 <div>
                     {!temperamentsElem?<h3>Loading...</h3>:
-                        <select className="selects">
+                        <select className="selects" onChange={selectTemperament}>
                             <option key={1} value={""}>Temperament</option>
                             {
-                                temperamentsElem.map((item, i) => (
-                                    <option key={i} value={item}>{item}</option>
+                                temperamentsElem.map((item, index) => (
+                                    <option key={index} value={item}>{item}</option>
                                 ))
                             }
                         </select>
@@ -101,7 +110,7 @@ const CtnHome = styled.div`
     }
 
     .selects  option{
-        background-color: #666666;
+        background-color: #666;
         font-weight: bold;
     }
 
@@ -114,9 +123,8 @@ const CtnHome = styled.div`
 
     
     .selects:focus{
-    border: 3px solid rgba(50,50,50,0.3);
-    /* transform: translateY(-4%); */
-    transition: all 0.3s ease;
+    border: 3px solid #fff;
+    
 }
 
 `;

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import {GoHome} from 'react-icons/go';
 // import fondo from '../../img/fondo.jpg';
 import gif from '../../img/dog2Gif.gif';
+
+
 const LandingPage = () => {
     return (
         <Container>
@@ -67,8 +69,9 @@ const Container = styled.div`
 
     .btn:hover{
         font-size: 80px;
-        box-shadow: 0 2px 30px  inset #000, 0 2px 50px #000;
-        border: 2px solid #000;
+        box-shadow: 0 2px 30px  inset #fff, 0 2px 50px #fff;
+        border: 2px solid #fff;
+        color : #fff;
     }
     
 

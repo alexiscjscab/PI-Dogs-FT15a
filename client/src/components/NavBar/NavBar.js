@@ -40,7 +40,7 @@ const NavBar = () => {
                 </div>
                 
         
-                <Link to ='/createDog' >
+                <Link to ='/createdog' >
                     <button className='btn'>New</button>
                 </Link>
                 
