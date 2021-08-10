@@ -4,6 +4,7 @@ const {Temperament} = require('../db'); // de la base de datos
 
 router.get('/', async (req, res) => {
     const results = await Temperament.findAll(); 
+    // console.log(results.length) hay 124
     res.json(results);
 })
 

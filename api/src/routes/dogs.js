@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
             // con el ... concateno dogsApi y con el resultado de la base de datos
             let totalDogs = [...dogsApi, ...resultsDb];
 
-            // console.log(totalDogs.length) hay 172
+            console.log(totalDogs.length)// hay 172
             console.log(totalDogs)
             return res.status(200).json(totalDogs)
 

@@ -1,29 +1,38 @@
 const Router = require('express');
-const {Dog} = require('../db');
+const {Dog, Temperament} = require('../db');
 const router = Router();
 const { v4: uuidv4 } = require('uuid');
 
 router.post('/', async (req, res) => {
 
     const {name, life_span, weight, height, image, temperaments} = req.body;
-    const id = uuidv4()
+    
+  
+    
+    let idTemp; 
+    
+    const createDog = await Dog.create({
+        name,
+        life_span,
+        weight ,
+        height,
+        image,
+        id: uuidv4()        
+    });
 
-    try{
-        const [dogCreate] = await Dog.findOrCreate({
-            where:{
-                name: name,
-                height: height,
-                weight: weight,
-                life_span: life_span,
-                image: image,
-                id: id
-            }
-        })
-        dogCreate.setTemperaments(temperaments);
-        res.json(dogCreate)
-    }catch(error){
-        res.json({error:"error"})
+    for(let i = 0; i < temperaments.length; i++){
+    
+    		console.log(temperaments[i])
+          idTemp = await Temperament.findAll({
+                where: {
+                    temperament: temperaments[i]
+                },
+                attributes: ['id']
+            })
+            createDog.addTemperament(idTemp);
+
     }
+    res.json(createDog)
 });
 
 module.exports = router;

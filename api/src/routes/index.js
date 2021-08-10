@@ -5,6 +5,7 @@ const dogs = require('./dogs');
 const temperament = require('./temperament');
 const idRaza = require('./idRaza');
 const dog = require('./dog');
+const tempFilter = require('./tempFilter');
 
 const router = Router();
 
@@ -13,7 +14,8 @@ const router = Router();
 router.use('/dogs', dogs);
 router.use('/temperament',temperament);
 router.use('/idRaza',idRaza);
-router.use('/dog', dog)
+router.use('/dog', dog);
+router.use('/temp', tempFilter);
 
 
 
