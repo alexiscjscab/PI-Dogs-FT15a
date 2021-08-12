@@ -20,7 +20,6 @@ const Cards = () => {
         setLimit(limit + 8);
     }
 
-    console.log(created)
 
 
     return (
@@ -80,7 +79,7 @@ const Cards = () => {
 
             <Paginado>
             {
-                filtered.length !== 0 && limit !== 0 ? <button onClick={decr} className="btn">Prev</button> : null
+                filtered.length !== 0 && limit !== 0 ? <button onClick={decr} key={+1} className="btn">Prev</button> : null
             }
             {
                 filtered.length !== 0 && limit !== filtered.length - (filtered.length % 8) && filtered.length > 8 ? <button onClick={inc} className="btn">Next</button>:null

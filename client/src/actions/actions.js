@@ -162,3 +162,21 @@ export const By_Temperament = (data) => {
         payload: data
     }
 }
+
+// por id de raza
+
+export const ByRaza = (id) => {
+    return async(dispatch) => {
+        let res = await axios.get(`http://localhost:3001/idRaza/${id}`)
+        let result = res.data;
+        dispatch(By_Raza(result));
+    }
+}
+
+export const By_Raza = (data) => {
+    return {
+        type: 'BY_RAZA',
+        payload: data
+    }
+}
+

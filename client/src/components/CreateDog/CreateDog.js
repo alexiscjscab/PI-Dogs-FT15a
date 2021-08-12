@@ -20,6 +20,8 @@ const CreateDog = () => {
     const [image, setImage] = useState('');
     const [selec, setSelec] = useState([]);
 
+    const [dogAlert , setDogAlert] = useState(false);
+
     const temperamentsElem = useSelector(state => state.temperamentsElem);
     const idG = useSelector(state => state.idG)
 
@@ -63,7 +65,7 @@ const CreateDog = () => {
     }
 
 
-    const send = async (e, name, heightMin, heightMax, weightMin, weightMax, yearMin, yearMax, image, selec) => {
+    const send = async (e, name, heightMin, heightMax, weightMin, weightMax, yearMin, yearMax, image, selec, dogAlert) => {
         e.preventDefault()
 
         // concatenamos la edad, peso y altura
@@ -98,6 +100,19 @@ const CreateDog = () => {
 
         dispatch(saveCreated(datosStore))
 
+        setTimeout(() => {
+            e.target.reset()
+            setDogAlert(false);
+            setName('');
+            setHeightMax('');
+            setHeightMin('');
+            setYearMin('');
+            setYearMax('');
+            setWeightMin('');
+            setWeightMax('');
+            setImage('');
+            setSelec([]);
+        },2000)
     }
 
     const deleteKey = (key) => {
@@ -106,11 +121,22 @@ const CreateDog = () => {
         setSelec(update);
     }
 
+
+    const alertDog = () => {
+    
+        if(name !== '' && heightMin !== '' && heightMax !== '' && weightMin !== '' && weightMax !== '' && yearMin !== '' && yearMax !== ''){
+            setDogAlert(!dogAlert)
+        }
+        
+    }
+
+    
+
     return(
         <div>
         <CtnForm>
 
-            <form onSubmit={(e) => send(e,name,heightMin,setHeightMax,weightMin,weightMax,yearMin, yearMax, image, selec)} className='form'>
+            <form onSubmit={(e) => send(e,name,heightMin,setHeightMax,weightMin,weightMax,yearMin, yearMax, image, selec, dogAlert)} className='form' id='form'>
 
                 <div className='containers large'>
                     <label>Name:</label>
@@ -222,21 +248,40 @@ const CreateDog = () => {
                 }
                 </div>
                 <div className="containers btn">
-                    <input type="submit" value="Create" />
+                    <input type="submit" value="Create" onClick={alertDog} />
                 </div>
-    
+                    
             </form>
             
         </CtnForm>
         <CtnHome>
+            <CtnDown>
+            {
+                dogAlert ? <h1 className='alert'>Creado con exito</h1> : null
+            }
             <Link to='/home'>
-               <span><GoHome className='icon'/></span>
+               <p><GoHome className='icon'/></p>
             </Link>
+            </CtnDown>  
         </CtnHome>
         </div>
     )
 
 }   
+
+
+const CtnDown = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .alert{
+        margin-bottom: 20px;
+        font-family: 'Georama', sans-serif;
+        text-shadow: 0.1em 0.1em #fff;
+    }
+
+`
 
 
 const CtnHome = styled.div`

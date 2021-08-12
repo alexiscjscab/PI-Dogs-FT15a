@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
 import CreateDog from './components/CreateDog/CreateDog';
+import CardDetail from './components/CardDetail/CardDetail';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
       <Route path = '/home' component={Home} />
 
       <Route path = '/createdog' component={CreateDog} />
+
+      <Route path = '/description/:id' component={CardDetail}/>
 
     </Fragment>
   );

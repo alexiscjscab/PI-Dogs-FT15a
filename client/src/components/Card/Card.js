@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 
 const Card = ({image, name , id, temperament}) => {
+
+
+    
     return (
         <CardCtn>
             <div>

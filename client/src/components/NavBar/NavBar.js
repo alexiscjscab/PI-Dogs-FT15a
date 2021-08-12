@@ -84,6 +84,7 @@ const Nav = styled.nav`
             width: 200px;
             font-family: 'Georama', sans-serif;
             text-transform: capitalize;
+            font-size: 18px;
         }
 
         input:hover{
@@ -93,7 +94,7 @@ const Nav = styled.nav`
         }
 
         input::placeholder{
-            color: #fff;
+            color: #000;
             font-family: 'Georama', sans-serif;
         }
 
@@ -101,7 +102,7 @@ const Nav = styled.nav`
     }
 
     .btn{
-        margin-right: 20px;
+        margin-right: 10px;
         border-radius: 50%;
         outline: 0px;
         color: #000;

@@ -2,7 +2,8 @@ const initialState = {
     temperamentsElem : undefined,
     filtered: [],
     created: [],
-    idG: -1
+    idG: -1,
+    idRaza: []
 
 };
 
@@ -92,6 +93,12 @@ const rootReducer = (state = initialState, {type, payload}) => {
             return{
                 ...state,
                 filtered: payload
+            }
+
+        case 'BY_RAZA':
+            return{
+                ...state,
+                idRaza : payload
             }
 
         default:
