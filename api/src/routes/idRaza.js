@@ -33,9 +33,10 @@ router.get('/:idRaza', async(req,res) => {
     }else{ // en caso de ser mayor viene de la base de datos o no existir
         try{
             const resultDb = await Dog.findByPk(id);
+            console.log(resultDb)
             res.json(resultDb);
         }catch(error){
-            res.status(500).json({error: 'erorr no se encontro el id en la base de datos'})
+            res.status(500).json({error: 'id no encontrado'})
         }
     }
 })

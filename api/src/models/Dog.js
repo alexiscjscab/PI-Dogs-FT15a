@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
     //altura
     height:{
       type: DataTypes.STRING,
-      allownu: false
+      allowNull: false
     },
     //peso
     weight:{
