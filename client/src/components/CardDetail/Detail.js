@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Detail = ({raza}) => {
     
+    
     return (
 
         <div>
@@ -51,13 +52,14 @@ const Ctn = styled.div`
     flex-direction: column;
     margin-top: 20px;
     text-align: center;
-    background-color: pink;
+    background-color: rgba(238,174,202,0.8);
     width: 490px;
     border-radius: 50px;
     font-family: 'Abril Fatface', cursive;
     letter-spacing: 0.1em;
     cursor: alias;
     border: 4px solid #fff;
+    color: #222;
 
     p{margin-top: 5px}
 

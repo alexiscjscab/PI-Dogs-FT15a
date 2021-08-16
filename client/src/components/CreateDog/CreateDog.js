@@ -69,9 +69,9 @@ const CreateDog = () => {
         e.preventDefault()
 
         // concatenamos la edad, peso y altura
-        let weight = `${weightMin} - ${weightMax}`;
-        let height = `${heightMin} - ${heightMax}`;
-        let life_span = `${yearMin} - ${yearMax} years`;
+        let height = `${heightMin} -  ${heightMax}`
+        let weight = `${weightMin} -  ${weightMax}`;
+        let life_span = `${yearMin} -  ${yearMax} years`;
 
         // aca creamos el objeto que mandamos a la base de datos
         let dataBase = {
@@ -239,10 +239,10 @@ const CreateDog = () => {
 
                 <div className="keys">
                 {
-                    selec.map((item, i) => (
-                        <div key={i}>
+                    selec.map((item, index) => (
+                        <div key={index}>
                             <span>{item}</span>
-                            <span onClick={(key) => deleteKey(i)} className="key"><GoTrashcan/></span>
+                            <span onClick={(key) => deleteKey(index)} className="key"><GoTrashcan/></span>
                         </div>
                     ))
                 }
@@ -409,6 +409,7 @@ const CtnForm = styled.div `
             color: #fff;
             background-color: #000;
             border: 2px solid #fff;
+            box-shadow: 0 0 5px inset #fff, 0 0 5px #fff;
         }
         
     }

@@ -25,7 +25,7 @@ const Cards = () => {
     return (
         <Fragment>
             <Container>
-            <Ctn>
+            <Ctn >
                 {
                 
                      filtered.length === 0 ? null : filtered.slice(limit, limit+8).map(dog => {
@@ -36,53 +36,48 @@ const Cards = () => {
                         
                         
                         return(
-                            <span>
-                                <Card 
-                                    key = {dog.id}
-                                    image = {dog.image}
-                                    name = {dog.name}
-                                    temperament = {dog.temperament} 
-                                    id = {dog.id}
-                                />
-                            </span>
+                            <Card 
+                                key = {dog.id}
+                                image = {dog.image}
+                                name = {dog.name}
+                                temperament = {dog.temperament} 
+                                id = {dog.id}
+                            />
+                            
                         )
                     }) 
                 }
             
             
-            {
-            created.length === 0 ? null : created.slice(limit, limit+8).map(dog => {
+                {
+                    filtered.length === 0 && created && created.slice(limit, limit+8).map(dog => {
 
-                if(!dog.image){
-                    dog.image = 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg'
+                        // si no tiene imagen agrega una por defecto
+                        if(!dog.image){
+                            dog.image = 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg'
+                        }
+
+                
+                        return(
+                            <Card 
+                                key = {dog.id}
+                                image = {dog.image}
+                                name = {dog.name}
+                                temperament = {dog.temperaments}
+                                id = {dog.id}
+                            />
+                        )
+                    }) 
                 }
-
-                
-                
-                
-                
-                return(
-                    <span>
-                        <Card 
-                            key = {dog.id}
-                            image = {dog.image}
-                            name = {dog.name}
-                            temperament = {dog.temperaments}
-                            id = {dog.id}
-                        />
-                    </span>
-                )
-            }) 
-        }
             </Ctn>
             </Container>
 
             <Paginado>
             {
-                filtered.length !== 0 && limit !== 0 ? <button onClick={decr} key={+1} className="btn">Prev</button> : null
+                filtered.length !== 0 && limit !== 0 ? <button onClick={decr} className="btn">Prev</button> : null
             }
             {
-                filtered.length !== 0 && limit !== filtered.length - (filtered.length % 8) && filtered.length > 8 ? <button onClick={inc} className="btn">Next</button>:null
+                filtered.length !== 0 && limit !== filtered.length - (filtered.length % 8) && filtered.length > 8 ? <button onClick={inc} className="btn">Next</button> : null
             }
             </Paginado>
 

@@ -17,13 +17,20 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 temperamentsElem : payload.map(x => x.temperament)
             };
 
+        case 'GET_DOGS':
+            return{
+                ...state,
+                filtered: payload
+            }
 
-        case 'FILTER_BREED_DOGS':
+
+        case 'GET_DOGS_NAME':
             return{
                 ...state,
                 filtered: payload
             } 
             
+
 
         case 'SAVED_CREATED':
             return {
