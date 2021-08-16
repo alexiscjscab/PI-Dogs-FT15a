@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     const createDog = await Dog.create({
         name,
         life_span,
-        weight ,
+        weight,
         height,
         image,
         id: uuidv4()        
