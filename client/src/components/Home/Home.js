@@ -10,8 +10,9 @@ function Home() {
     
 
     useEffect(() => {
-        dispatch(getTemperaments())
-    },[dispatch])
+        dispatch(getTemperaments());
+        dispatch(getAllDogs());
+    },[dispatch]);
 
 
 
