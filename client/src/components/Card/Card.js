@@ -36,7 +36,7 @@ const CardCtn = styled.div`
         width: 370px;
         border: 2px solid #fff;
         text-align: center;
-        background-color:rgba(238,174,202,0.8);
+        background-color:rgba(238,174,202,0.666);
         border-radius: 50px;
         margin-right: 8px;
         margin-left: 8px;

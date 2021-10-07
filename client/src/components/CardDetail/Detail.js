@@ -52,7 +52,7 @@ const Ctn = styled.div`
     flex-direction: column;
     margin-top: 20px;
     text-align: center;
-    background-color: rgba(238,174,202,0.8);
+    background-color: rgba(238,174,202,0.666);
     width: 490px;
     border-radius: 50px;
     font-family: 'Abril Fatface', cursive;

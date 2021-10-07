@@ -13,7 +13,7 @@ function App() {
 
 
       {/* en estas rutas siempre aparecera el nav*/}
-      <Route path={['/home', '/createdog']}>
+      <Route path={['/home', '/createdog', '/description']}>
         <NavBar/>
       </Route>
 

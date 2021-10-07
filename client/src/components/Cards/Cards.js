@@ -24,6 +24,14 @@ const Cards = () => {
 
     return (
         <Fragment>
+            <Paginado>
+            {
+                filtered.length !== 0 && limit !== 0 ? <button onClick={decr} className="btn">Prev</button> : null
+            }
+            {
+                filtered.length !== 0 && limit !== filtered.length - (filtered.length % 8) && filtered.length > 8 ? <button onClick={inc} className="btn">Next</button> : null
+            }
+            </Paginado>
             <Container>
             <Ctn >
                 {

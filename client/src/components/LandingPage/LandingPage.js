@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {GoHome} from 'react-icons/go';
-// import fondo from '../../img/fondo.jpg';
-import gif from '../../img/dog2Gif.gif';
+import fondo from '../../img/fondo.jpg';
+// import gif from '../../img/dog2Gif.gif';
 
 
 const LandingPage = () => {
@@ -26,7 +26,7 @@ const LandingPage = () => {
 
 const Container = styled.div`
     display: grid;
-    background: url(${gif});
+    background: url(${fondo});
     background-size: 100% 100%;
     position: fixed;
     background-attachment: fixed;

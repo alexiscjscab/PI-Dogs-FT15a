@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {GoSearch} from 'react-icons/go';
 import {filterNameDog} from '../../actions/actions';
 import { useDispatch } from 'react-redux';
+import { GoHome } from 'react-icons/go';
 
 const NavBar = () => {
 
@@ -21,6 +22,11 @@ const NavBar = () => {
     return (
         <Nav>
             <div className='ctn'>
+                <div>
+                <Link to='/home'>
+               <p><GoHome className='iconHome'/></p>
+            </Link>
+                </div>
                 <div className='input' > 
                     <div> 
                         <input 
@@ -129,6 +135,19 @@ const Nav = styled.nav`
         top: 2px;
     }
 
+    .iconHome{
+    color: #000;
+    font-size: 22px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+.iconHome:hover{
+    color: #fff;
+    border: 2px solid #fff;
+}
     
 `;
 
